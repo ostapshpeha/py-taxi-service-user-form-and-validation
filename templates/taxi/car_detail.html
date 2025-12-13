@@ -12,13 +12,9 @@
     </a>
 
     {% if request.user in car.drivers.all %}
-      <a href="{% url 'taxi:car-update' pk=car.id %}" class="btn btn-secondary link-to-page">
-        Delete me from this car
-      </a>
+      <form action="{% url 'taxi:car-unassign' car.id %}" method="post">{% csrf_token %}<button>Delete me from this car</button></form>
     {% else %}
-      <a href="{% url 'taxi:car-update' pk=car.id %}" class="btn btn-secondary link-to-page">
-        Assign me to this car
-      </a>
+      <form action="{% url 'taxi:car-assign' car.id %}" method="post">{% csrf_token %}<button>Assign me to this car</button></form>
     {% endif %}
   </h1>
   <p>Manufacturer: ({{ car.manufacturer.name }}, {{ car.manufacturer.country }})</p>
