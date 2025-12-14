@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.decorators.http import require_POST
 
 from .forms import DriverCreationForm, DriverLicenseUpdateForm, CarForm
-from .models import Car, Manufacturer
+from .models import Car, Manufacturer, Driver
 
 
 @login_required
